@@ -1,0 +1,19 @@
+<div class="task-input">
+  <input [(ngModel)]="task.title" type="text" placeholder="Task Name" />
+  <input [(ngModel)]="task.description" type="text" placeholder="Task Description" />
+  <input [(ngModel)]="task.dueDate" type="date" placeholder="Due Date" />
+  <select [(ngModel)]="task.priority">
+    <option value="" disabled selected>Priority</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+  <select [(ngModel)]="task.tag">
+    <option value="" disabled selected>Category</option>
+    <option value="work">Work</option>
+    <option value="personal">Personal</option>
+    <option value="study">Study</option>
+  </select>
+  <input [(ngModel)]="task.tag" type="text" placeholder="Tags" />
+  <button (click)="addTask()">Add Task</button>
+</div>

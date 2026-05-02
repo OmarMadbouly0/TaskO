@@ -1,0 +1,28 @@
+.Task-Card {
+	padding: 12px;
+	border-radius: 8px;
+	background: #f9fafb;
+	border: 1px solid var(--line);
+}
+
+.Task-Card h2 {
+	margin: 0 0 8px;
+	font-size: 1.05rem;
+	color: var(--text);
+}
+
+.Task-Card p {
+	margin: 5px 0;
+	font-size: 0.94rem;
+	color: var(--muted);
+}
+
+.Task-Card p:nth-of-type(3) {
+	color: var(--primary);
+	font-weight: 600;
+}
+
+.Task-Card p:nth-of-type(4) {
+	color: #b45309;
+	font-weight: 600;
+}

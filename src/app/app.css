@@ -1,0 +1,29 @@
+:host {
+	display: block;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+app-header,
+app-carousel,
+app-task-input,
+app-task-list,
+app-footer {
+	display: block;
+	margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+	:host {
+		padding: 12px;
+	}
+
+	app-header,
+	app-carousel,
+	app-task-input,
+	app-task-list,
+	app-footer {
+		margin-top: 10px;
+	}
+}

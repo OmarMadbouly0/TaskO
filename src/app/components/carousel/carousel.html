@@ -1,0 +1,15 @@
+<div class="carousel">
+  <button class="carousel-button prev" (click)="previousImage()">&#10094;</button>
+  <img [src]="images[currentIndex]" alt="Carousel Image" class="carousel-image" />
+  <button class="carousel-button next" (click)="nextImage()">&#10095;</button>
+
+  <div class="carousel-dots">
+    @for (image of images; let i = $index; track i) {
+      <button
+        class="dot"
+        [class.active]="currentIndex === i"
+        (click)="goToImage(i)"
+      ></button>
+    }
+  </div>
+</div>

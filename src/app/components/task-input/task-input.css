@@ -1,0 +1,48 @@
+.task-input {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	padding: 14px;
+	border-radius: var(--radius);
+	background: var(--surface);
+	border: 1px solid var(--line);
+}
+
+.task-input input,
+.task-input select {
+	width: 100%;
+	height: 42px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	padding: 0 12px;
+	background: #ffffff;
+	color: var(--text);
+	outline: none;
+}
+
+.task-input input:focus,
+.task-input select:focus {
+	border-color: var(--primary);
+}
+
+.task-input button {
+	grid-column: 1 / -1;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background: var(--primary);
+	color: #ffffff;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.task-input button:hover {
+	background: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+	.task-input {
+		grid-template-columns: 1fr;
+		padding: 12px;
+	}
+}
