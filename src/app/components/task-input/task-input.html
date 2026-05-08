@@ -4,16 +4,23 @@
   <input [(ngModel)]="task.dueDate" type="date" placeholder="Due Date" />
   <select [(ngModel)]="task.priority">
     <option value="" disabled selected>Priority</option>
-    <option value="low">Low</option>
-    <option value="medium">Medium</option>
-    <option value="high">High</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
   </select>
   <select [(ngModel)]="task.tag">
     <option value="" disabled selected>Category</option>
-    <option value="work">Work</option>
-    <option value="personal">Personal</option>
-    <option value="study">Study</option>
+    <option value="Work">Work</option>
+    <option value="Personal">Personal</option>
+    <option value="Study">Study</option>
   </select>
-  <input [(ngModel)]="task.tag" type="text" placeholder="Tags" />
-  <button (click)="addTask()">Add Task</button>
+
+  @if (isEditing) {
+    <div class="button-row">
+      <button class="btn-save" (click)="addTask()">Save Changes</button>
+      <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+    </div>
+  } @else {
+    <button (click)="addTask()">Add Task</button>
+  }
 </div>

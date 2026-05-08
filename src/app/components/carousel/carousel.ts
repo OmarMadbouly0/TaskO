@@ -30,6 +30,6 @@ export class Carousel {
   ngOnInit() {
     setInterval(() => {
       this.nextImage();
-    }, 3000);
+    }, 2500);
   }
 }

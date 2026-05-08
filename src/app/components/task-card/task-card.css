@@ -1,28 +1,104 @@
-.Task-Card {
+.task-card {
 	padding: 12px;
 	border-radius: 8px;
 	background: #f9fafb;
 	border: 1px solid var(--line);
+	transition: box-shadow 0.2s, opacity 0.2s;
 }
 
-.Task-Card h2 {
-	margin: 0 0 8px;
+.task-card:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* when task is "done", dim it a bit */
+.task-card.done {
+	opacity: 0.7;
+	background: #f0fdf4;
+	border-color: #bbf7d0;
+}
+
+.task-card h3 {
+	margin: 0 0 6px;
 	font-size: 1.05rem;
 	color: var(--text);
 }
 
-.Task-Card p {
-	margin: 5px 0;
-	font-size: 0.94rem;
+.task-card.done h3 {
+	text-decoration: line-through;
 	color: var(--muted);
 }
 
-.Task-Card p:nth-of-type(3) {
-	color: var(--primary);
-	font-weight: 600;
+.description {
+	margin: 4px 0;
+	font-size: 0.9rem;
+	color: var(--muted);
 }
 
-.Task-Card p:nth-of-type(4) {
+.meta {
+	margin: 3px 0;
+	font-size: 0.85rem;
+	color: var(--muted);
+}
+
+/* status badge */
+.status-badge {
+	display: inline-block;
+	margin-top: 6px;
+	padding: 2px 10px;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	background: #fef3c7;
 	color: #b45309;
+}
+
+.status-badge.badge-done {
+	background: #d1fae5;
+	color: #047857;
+}
+
+/* 3 buttons row */
+.card-buttons {
+	display: flex;
+	gap: 6px;
+	margin-top: 10px;
+}
+
+.card-buttons button {
+	flex: 1;
+	padding: 6px 0;
+	border: none;
+	border-radius: 6px;
+	font-size: 0.8rem;
 	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.btn-done {
+	background: #d1fae5;
+	color: #047857;
+}
+
+.btn-done:hover {
+	background: #a7f3d0;
+}
+
+.btn-edit {
+	background: #dbeafe;
+	color: #1d4ed8;
+}
+
+.btn-edit:hover {
+	background: #bfdbfe;
+}
+
+.btn-delete {
+	background: #fee2e2;
+	color: #dc2626;
+}
+
+.btn-delete:hover {
+	background: #fecaca;
 }

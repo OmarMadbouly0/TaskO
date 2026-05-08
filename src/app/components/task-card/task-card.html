@@ -1,8 +1,31 @@
-<div class="Task-Card">
-  <h2>Task Title</h2>
-  <p>Task Description</p>
-  <p>Due Date: 2026-12-31</p>
-  <p>Priority: High</p>
-  <p>Category: Work</p>
-</div>
+<div class="task-card" [class.done]="task.status === 'done'">
+  <h3>{{ task.title }}</h3>
 
+  @if (task.description) {
+    <p class="description">{{ task.description }}</p>
+  }
+
+  @if (task.dueDate) {
+    <p class="meta">Due: {{ task.dueDate }}</p>
+  }
+
+  @if (task.priority) {
+    <p class="meta">Priority: {{ task.priority }}</p>
+  }
+
+  @if (task.tag) {
+    <p class="meta">Category: {{ task.tag }}</p>
+  }
+
+  <span class="status-badge" [class.badge-done]="task.status === 'done'">
+    {{ task.status }}
+  </span>
+
+  <div class="card-buttons">
+    @if (task.status === 'undone') {
+      <button class="btn-done" (click)="onDone()">✓ Done</button>
+    }
+    <button class="btn-edit" (click)="onEdit()">✎ Update</button>
+    <button class="btn-delete" (click)="onDelete()">✕ Delete</button>
+  </div>
+</div>

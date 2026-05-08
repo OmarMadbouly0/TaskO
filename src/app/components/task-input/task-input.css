@@ -18,6 +18,7 @@
 	background: #ffffff;
 	color: var(--text);
 	outline: none;
+	transition: border-color 0.2s;
 }
 
 .task-input input:focus,
@@ -34,10 +35,45 @@
 	color: #ffffff;
 	font-weight: 700;
 	cursor: pointer;
+	transition: background 0.2s;
 }
 
 .task-input button:hover {
 	background: var(--primary-dark);
+}
+
+.button-row {
+	grid-column: 1 / -1;
+	display: flex;
+	gap: 10px;
+}
+
+.button-row button {
+	flex: 1;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.btn-save {
+	background: #16a34a;
+	color: #ffffff;
+}
+
+.btn-save:hover {
+	background: #15803d;
+}
+
+.btn-cancel {
+	background: #6b7280;
+	color: #ffffff;
+}
+
+.btn-cancel:hover {
+	background: #4b5563;
 }
 
 @media (max-width: 768px) {
