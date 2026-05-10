@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Task } from '../../types';
+import { ITask } from '../../types';
 
 @Component({
   selector: 'app-task-input',
@@ -9,9 +9,9 @@ import { Task } from '../../types';
   styleUrl: './task-input.css',
 })
 export class TaskInput {
-  @Input() taskToEdit: Task | null = null;
+  @Input() taskToEdit: ITask | null = null;
 
-  @Output() sendTaskToParent = new EventEmitter<Task>();
+  @Output() sendTaskToParent = new EventEmitter<ITask>();
 
   @Output() cancelEdit = new EventEmitter<void>();
 
@@ -43,7 +43,7 @@ export class TaskInput {
       return;
     }
 
-    const newTask: Task = {
+    const newTask: ITask = {
       id: 0,
       title: this.task.title,
       description: this.task.description,

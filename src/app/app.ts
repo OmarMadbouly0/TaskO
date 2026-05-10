@@ -4,7 +4,7 @@ import { TaskInput } from './components/task-input/task-input';
 import { TaskList } from './components/task-list/task-list';
 import { Footer } from './components/footer/footer';
 import { Carousel } from './components/carousel/carousel';
-import { Task } from './types';
+import { ITask } from './types';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +15,12 @@ import { Task } from './types';
 
 
 export class App {
-  tasks: Task[] = [];
+  tasks: ITask[] = [];
   private nextId = 1;
   editingTaskId: number | null = null;
-  taskToEdit: Task | null = null;
+  taskToEdit: ITask | null = null;
 
-  onTaskReceived(task: Task) {
+  onTaskReceived(task: ITask) {
     if (this.editingTaskId !== null) {
       // UPDATE
       const index = this.tasks.findIndex((t) => t.id === this.editingTaskId);
@@ -43,6 +43,13 @@ export class App {
     const task = this.tasks.find((t) => t.id === id);
     if (task) {
       task.status = 'done';
+    }
+  }
+
+  onMarkUndone(id: number) {
+    const task = this.tasks.find((t) => t.id === id);
+    if (task) {
+      task.status = 'undone';
     }
   }
 

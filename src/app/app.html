@@ -1,7 +1,6 @@
 <app-header></app-header>
 <app-carousel></app-carousel>
 
-
 <app-task-input
   [taskToEdit]="taskToEdit"
   (sendTaskToParent)="onTaskReceived($event)"
@@ -11,6 +10,7 @@
 <app-task-list
   [tasks]="tasks"
   (markDone)="onMarkDone($event)"
+  (markUndone)="onMarkUndone($event)"
   (deleteTask)="onDeleteTask($event)"
   (editTask)="onEditTask($event)"
 />

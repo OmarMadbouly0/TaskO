@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task, TabName } from '../../types';
+import { ITask, TabName } from '../../types';
 import { TaskCard } from '../task-card/task-card';
 
 @Component({
@@ -9,9 +9,10 @@ import { TaskCard } from '../task-card/task-card';
   styleUrl: './task-list.css',
 })
 export class TaskList {
-  @Input() tasks: Task[] = [];
+  @Input() tasks: ITask[] = [];
 
   @Output() markDone = new EventEmitter<number>();
+  @Output() markUndone = new EventEmitter<number>();
   @Output() deleteTask = new EventEmitter<number>();
   @Output() editTask = new EventEmitter<number>();
 
@@ -23,6 +24,10 @@ export class TaskList {
 
   onDone(id: number) {
     this.markDone.emit(id);
+  }
+
+  onUndone(id: number) {
+    this.markUndone.emit(id);
   }
 
   onDelete(id: number) {

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../../types';
+import { ITask } from '../../types';
 
 @Component({
   selector: 'app-task-card',
@@ -8,14 +8,19 @@ import { Task } from '../../types';
   styleUrl: './task-card.css',
 })
 export class TaskCard {
-  @Input() task!: Task;
+  @Input() task!: ITask;
 
   @Output() doneClicked = new EventEmitter<number>();
+  @Output() undoneClicked = new EventEmitter<number>();
   @Output() deleteClicked = new EventEmitter<number>();
   @Output() editClicked = new EventEmitter<number>();
 
   onDone() {
     this.doneClicked.emit(this.task.id);
+  }
+
+  onUndone() {
+    this.undoneClicked.emit(this.task.id);
   }
 
   onDelete() {

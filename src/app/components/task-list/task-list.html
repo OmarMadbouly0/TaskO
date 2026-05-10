@@ -2,35 +2,42 @@
   <h2>Task List</h2>
 
   <div class="tabs">
-    <button [class.active]="activeTab === 'all'" (click)="setTab('all')">
-      All Tasks
-    </button>
-    <button [class.active]="activeTab === 'done'" (click)="setTab('done')">
-      Done
-    </button>
-    <button [class.active]="activeTab === 'undone'" (click)="setTab('undone')">
-      Undone
-    </button>
+    <button [class.active]="activeTab === 'all'" (click)="setTab('all')">All Tasks</button>
+    <button [class.active]="activeTab === 'done'" (click)="setTab('done')">Done</button>
+    <button [class.active]="activeTab === 'undone'" (click)="setTab('undone')">Undone</button>
   </div>
 
   <div class="cards-area">
     @for (task of tasks; track task.id) {
+      @if (activeTab === 'all') {
+        <app-task-card
+          [task]="task"
+          (doneClicked)="onDone($event)"
+          (undoneClicked)="onUndone($event)"
+          (deleteClicked)="onDelete($event)"
+          (editClicked)="onEdit($event)"
+        />
+      }
 
-    @if (activeTab === 'all') {
-    <app-task-card [task]="task" (doneClicked)="onDone($event)" (deleteClicked)="onDelete($event)"
-      (editClicked)="onEdit($event)" />
-    }
+      @if (activeTab === 'done' && task.status === 'done') {
+        <app-task-card
+          [task]="task"
+          (doneClicked)="onDone($event)"
+          (undoneClicked)="onUndone($event)"
+          (deleteClicked)="onDelete($event)"
+          (editClicked)="onEdit($event)"
+        />
+      }
 
-    @if (activeTab === 'done' && task.status === 'done') {
-    <app-task-card [task]="task" (doneClicked)="onDone($event)" (deleteClicked)="onDelete($event)"
-      (editClicked)="onEdit($event)" />
-    }
-
-    @if (activeTab === 'undone' && task.status === 'undone') {
-    <app-task-card [task]="task" (doneClicked)="onDone($event)" (deleteClicked)="onDelete($event)"
-      (editClicked)="onEdit($event)" />
-    }
-
+      @if (activeTab === 'undone' && task.status === 'undone') {
+        <app-task-card
+          [task]="task"
+          (doneClicked)="onDone($event)"
+          (undoneClicked)="onUndone($event)"
+          (deleteClicked)="onDelete($event)"
+          (editClicked)="onEdit($event)"
+        />
+      }
     }
   </div>
 </div>

@@ -85,6 +85,15 @@
 	background: #a7f3d0;
 }
 
+.btn-undone {
+	background: #fde68a;
+	color: #92400e;
+}
+
+.btn-undone:hover {
+	background: #fcd34d;
+}
+
 .btn-edit {
 	background: #dbeafe;
 	color: #1d4ed8;
